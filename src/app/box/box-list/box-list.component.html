@@ -1,0 +1,27 @@
+<app-navigation (filterLetter)="filterLetters($event)"></app-navigation>
+<div class="container right-content">
+  <div class="row">
+    <div class="col-2">
+      <app-navigate></app-navigate>
+    </div>
+    <div class="col-10">
+      <button class="btn btn-control btn-delete" (click)="deleteLetter()">
+      </button>
+      <table class="table table-striped table-letters">
+        <tbody>
+
+        <tr *ngFor="let article of urlResponse | search: searchText; let i = index" #articleTitle>
+          <td><input class="removeItem" #checked (change)="addLetterforRemove(article, $event)" type="checkbox"></td>
+          <td [routerLink]="[article._id]"
+              routerLinkActive="active"><span class="title">{{article.subject}}</span> <span class="body">{{article.body}}</span></td>
+
+        </tr>
+        <tr> <td colspan="2" *ngIf="!urlResponse">No messages matched your search</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+

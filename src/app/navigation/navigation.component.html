@@ -1,0 +1,23 @@
+<header id="header">
+  <div class="container">
+    <div class="row justify-content-between align-items-center">
+      <div class="col-2 left-block">
+        <button  [routerLink]="['/users/users-list']" routerLinkActive="active">Users</button>
+        <button class="active-box" (click)="redirect()"  [routerLink]="['/box/']" routerLinkActive="active">Box</button>
+
+      </div>
+      <div class="form-group col-7 search-block">
+        <input class="form-control" type="text" placeholder="Search" (keyup)="filterTitle(searchText)" [(ngModel)]="searchText"/>
+        <button type="button">Search</button>
+      </div>
+      <div class="col-3 user-info d-flex align-items-center justify-content-center">
+        <div *ngFor="let user of users">
+          {{user.firstName}} {{user.lastName}}
+        </div>
+        <div><a (click)="loginOut()">Logout</a></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<router-outlet></router-outlet>

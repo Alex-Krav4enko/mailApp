@@ -1,0 +1,19 @@
+<app-navigation></app-navigation>
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <app-navigate></app-navigate>
+    </div>
+   <div class="col-10">
+     <button type="button" class="btn btn-control btn-delete" (click)="removeLetter(oneLetterShow._id)"></button>
+     <div class="email">{{oneLetterShow.to}}</div>
+     <h1 class="body">{{oneLetterShow.subject}}</h1>
+     <div class="body">{{oneLetterShow.body}}</div>
+   </div>
+
+  </div>
+</div>
+
+<div class="loaders" *ngIf="loader">
+  <div class="loader">Loading...</div>
+</div>
